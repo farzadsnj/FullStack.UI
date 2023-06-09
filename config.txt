@@ -1,0 +1,20 @@
+The error message you encountered indicates a problem with executing the "ng" command in PowerShell. It states that the file "ng.ps1" located at "C:\Users\farza\AppData\Roaming\npm\" cannot be loaded because it is not digitally signed. This issue occurs due to the default execution policy set in PowerShell, which restricts the execution of unsigned scripts for security reasons.
+
+To resolve this issue, you have a few options:
+
+1. Change Execution Policy (Recommended):
+   - Open PowerShell as an administrator.
+   - Run the following command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+   - You may be prompted to confirm the change. Press "Y" and then Enter.
+   - This command sets the execution policy to allow locally created scripts to run, while requiring remote scripts to be signed.
+   - After changing the execution policy, try running the "ng" command again.
+
+2. Bypass Execution Policy:
+   - Open PowerShell as an administrator.
+   - Run the following command: `powershell -ExecutionPolicy Bypass -File "C:\Users\farza\AppData\Roaming\npm\ng.ps1" version`
+   - This command bypasses the execution policy for the specific script and runs it with the current session.
+   - Note that using this method may pose security risks, so exercise caution when executing unsigned scripts.
+
+Remember to replace "C:\Users\farza\AppData\Roaming\npm\ng.ps1" with the actual path to the "ng.ps1" file on your system.
+
+By following one of these approaches, you should be able to resolve the "ng.ps1 cannot be loaded" error and execute the "ng" command successfully.
